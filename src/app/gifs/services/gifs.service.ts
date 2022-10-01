@@ -7,6 +7,7 @@ import { Injectable } from '@angular/core';
 export class GifsService {
   private apiKey: string = 'hqsTk5dtVzkcboAI8DvAia79jeGHt5gV';
   private _historial: string[] = [];
+  public resultados: any[] = [];
 
   get historial() {
     //De esta manera rompemos la referencia y solo mandamos lo que contiene
@@ -28,6 +29,7 @@ export class GifsService {
       )
       .subscribe((resp: any) => {
         console.log(resp.data);
+        this.resultados = resp.data;
       });
 
     console.log(this._historial);
